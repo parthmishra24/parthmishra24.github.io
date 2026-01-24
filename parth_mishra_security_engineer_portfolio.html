@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Parth Mishra | Security Engineer</title>
+  <meta name="description" content="Security Engineer specializing in AppSec, Cloud Security, CI/CD, and Offensive Security." />
+  <style>
+    :root {
+      --bg: #0b0f14;
+      --card: #121826;
+      --text: #e5e7eb;
+      --muted: #9ca3af;
+      --accent: #38bdf8;
+      --terminal-bg: #020617;
+      --terminal-text: #38bdf8;
+      --cursor: #e5e7eb;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    a { color: var(--accent); text-decoration: none; }
+    header {
+      padding: 4rem 1.5rem;
+      max-width: 1000px;
+      margin: auto;
+    }
+    h1 { font-size: 2.5rem; margin-bottom: 0.5rem; }
+    h2 { margin-top: 3rem; font-size: 1.8rem; }
+    p { color: var(--muted); }
+    section {
+      max-width: 1000px;
+      margin: auto;
+      padding: 2rem 1.5rem;
+    }
+    .card {
+      background: var(--card);
+      border-radius: 16px;
+      padding: 1.5rem;
+      margin-top: 1.5rem;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+    ul { padding-left: 1.2rem; }
+    footer {
+      text-align: center;
+      padding: 3rem 1rem;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    /* Terminal */
+    #terminal {
+      font-family: 'Courier New', monospace;
+      background: var(--terminal-bg);
+      color: var(--terminal-text);
+      min-height: 220px;
+      overflow: hidden;
+      position: relative;
+    }
+    #terminal-output {
+      white-space: pre-wrap;
+      font-size: 0.95rem;
+    }
+    .cursor {
+      display: inline-block;
+      width: 8px;
+      background: var(--cursor);
+      margin-left: 2px;
+      animation: blink 1s steps(1) infinite;
+      vertical-align: bottom;
+    }
+    @keyframes blink {
+      50% { opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="card" id="terminal">
+    <pre id="terminal-output"></pre><span class="cursor"></span>
+  </div>
+  <div style="margin-top: 1.5rem;">
+    <a href="https://github.com/parthmishra24" target="_blank">GitHub</a>
+    &nbsp;|&nbsp;
+    <a href="https://linkedin.com/in/parthmishra24" target="_blank">LinkedIn</a>
+  </div>
+</header>
+
+<script>
+  // FIX: Proper newline escaping ("\\n") to avoid SyntaxError
+  const lines = [
+    "$ whoami",
+    "parth.mishra",
+    "$ role",
+    "Associate Security Engineer",
+    "$ focus",
+    "AppSec | Cloud | CI/CD | Offensive Security",
+    "$ echo 'breaking things with permission'",
+    "breaking things with permission"
+  ];
+
+  const output = document.getElementById('terminal-output');
+  let lineIndex = 0;
+  let charIndex = 0;
+
+  function typeLine() {
+    if (lineIndex >= lines.length) return;
+    if (charIndex < lines[lineIndex].length) {
+      output.textContent += lines[lineIndex][charIndex++];
+      setTimeout(typeLine, 40);
+    } else {
+      output.textContent += "\n"; // <-- Correctly escaped newline
+      lineIndex++;
+      charIndex = 0;
+      setTimeout(typeLine, 400);
+    }
+  }
+
+  typeLine();
+</script>
+
+<section>
+  <h2>Skills</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>Application Security</h3>
+      <p>OWASP Top 10, SAST/DAST, CI/CD Security, Secure Design Reviews, Linux</p>
+    </div>
+    <div class="card">
+      <h3>Offensive & Tools</h3>
+      <p>Burp Suite, Nmap, Wireshark, Metasploit, Netexec, ProjectDiscovery</p>
+    </div>
+    <div class="card">
+      <h3>Cloud & Monitoring</h3>
+      <p>Datadog APM, Microsoft Defender, Cloud Misconfiguration Analysis</p>
+    </div>
+    <div class="card">
+      <h3>Programming</h3>
+      <p>Python, Bash, Git, GitHub Actions</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>Experience</h2>
+
+  <div class="card">
+    <h3>Associate Security Engineer — Learnship GmbH</h3>
+    <p><em>Oct 2024 – Present</em></p>
+    <ul>
+      <li>Identified and coordinated remediation of 50+ application and cloud vulnerabilities.</li>
+      <li>Performed deep static code analysis and backend tracing using Datadog APM.</li>
+      <li>Resolved critical cloud infrastructure misconfigurations in production.</li>
+      <li>Led internal ISO 27001 audit and supported external audits.</li>
+      <li>Designed CI/CD security automation for continuous monitoring.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>Penetration Tester — Necurity Solutions</h3>
+    <p><em>Feb 2024 – Oct 2024</em></p>
+    <ul>
+      <li>Executed end-to-end VAPT engagements across web, network, and cloud.</li>
+      <li>Conducted Active Directory exploitation, privilege escalation, and lateral movement.</li>
+      <li>Delivered detailed technical and executive-level security reports.</li>
+      <li>Collaborated with red and blue teams for real-world attack simulations.</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <h2>Projects</h2>
+
+  <div class="grid">
+    <div class="card">
+      <h3>EASM Pipeline</h3>
+      <p>
+        Automated CI/CD attack surface discovery using Subfinder, Naabu, and Nuclei. Enabled continuous external asset discovery and proactive vulnerability detection.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>JWTEK</h3>
+      <p>
+        Python-based CLI tool to analyze JWTs for weak algorithms, misconfigurations, and insecure claims. Turns manual token analysis into a fast, repeatable workflow.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>SnortGen</h3>
+      <p>
+        Automation tool that generates structured VAPT reports in DOCX format, reducing reporting time and improving audit readiness.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>Certifications</h2>
+  <div class="card">
+    <ul>
+      <li>CEH v12 — EC-Council (2024–2027)</li>
+      <li>PJPT — TCM Security</li>
+    </ul>
+  </div>
+</section>
+
+<footer>
+  © 2026 Parth Mishra · Built with security and simplicity in mind
+</footer>
+
+</body>
+</html>
