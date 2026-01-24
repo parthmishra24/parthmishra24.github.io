@@ -24,7 +24,7 @@
       color: var(--text);
       line-height: 1.6;
     }
-    a { color: var(--accent); text-decoration: none; }
+    a { color: inherit; text-decoration: none; }
     header {
       padding: 4rem 1.5rem;
       max-width: 1000px;
@@ -44,6 +44,12 @@
       padding: 1.5rem;
       margin-top: 1.5rem;
       box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+    .card.hover-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 45px rgba(56,189,248,0.25);
+      cursor: pointer;
     }
     .grid {
       display: grid;
@@ -184,25 +190,31 @@
 
   <div class="grid">
     <div class="card">
-      <h3>EASM Pipeline</h3>
-      <p>
-        Automated CI/CD attack surface discovery using Subfinder, Naabu, and Nuclei. Enabled continuous external asset discovery and proactive vulnerability detection.
-      </p>
-    </div>
+        <h3>EASM Pipeline</h3>
+        <p>
+          Automated CI/CD attack surface discovery using Subfinder, Naabu, and Nuclei. Enabled continuous external asset discovery and proactive vulnerability detection.
+        </p>
+      </div>
 
-    <div class="card">
-      <h3>JWTEK</h3>
-      <p>
-        Python-based CLI tool to analyze JWTs for weak algorithms, misconfigurations, and insecure claims. Turns manual token analysis into a fast, repeatable workflow.
-      </p>
-    </div>
+    <a href="https://github.com/parthmishra24/JWTek" target="_blank">
+      <div class="card hover-card">
+        <h3>JWTEK</h3>
+        <p>
+          Python-based CLI tool to analyze JWTs for weak algorithms, misconfigurations, and insecure claims. Turns manual token analysis into a fast, repeatable workflow.
+        </p>
+        <p style="margin-top: 0.75rem; color: var(--accent);">View on GitHub →</p>
+      </div>
+    </a>
 
-    <div class="card">
-      <h3>SnortGen</h3>
-      <p>
-        Automation tool that generates structured VAPT reports in DOCX format, reducing reporting time and improving audit readiness.
-      </p>
-    </div>
+    <a href="https://github.com/parthmishra24/SnortGen" target="_blank">
+      <div class="card hover-card">
+        <h3>SnortGen</h3>
+        <p>
+          Automation tool that generates structured VAPT reports in DOCX format, reducing reporting time and improving audit readiness.
+        </p>
+        <p style="margin-top: 0.75rem; color: var(--accent);">View on GitHub →</p>
+      </div>
+    </a>
   </div>
 </section>
 
@@ -217,7 +229,7 @@
 </section>
 
 <footer>
-  © 2026 Parth Mishra · Built with ChatGPT
+  © 2026 Parth Mishra · Built with security and simplicity in mind
 </footer>
 
 </body>
